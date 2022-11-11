@@ -1,0 +1,9 @@
+.prompt {
+    font-size: large;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px 0 1px 0;
+    border-color: var(--dark);
+
+    padding: 0.25rem 1rem 0.25rem 1rem;
+}

@@ -1,0 +1,15 @@
+.input-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 0.5rem;
+}
+
+.input-form input {
+    align-self: center;
+}
+
+.input-form button {
+    align-self: center;
+}

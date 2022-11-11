@@ -1,0 +1,14 @@
+.price-wrapper {
+    border-style: solid;
+    border-radius: 1rem;
+    border-width: 1px;
+    padding: 0.25rem 1rem 0.25rem 0.5rem;
+}
+
+.price-wrapper input {
+    border: none;
+    border-radius: 0;
+    margin-left: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0
+}

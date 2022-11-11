@@ -1,0 +1,16 @@
+.toast {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background: var(--green);
+    color: var(--white);
+    padding: 1rem;
+    font-size: large;
+    height: fit-content;
+    place-self: end;
+
+    position: fixed;
+    bottom: 0;
+}

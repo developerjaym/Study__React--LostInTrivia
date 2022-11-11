@@ -1,0 +1,7 @@
+main > * {
+    grid-area: area;
+}
+
+.score {
+   padding: 0.5rem;
+}

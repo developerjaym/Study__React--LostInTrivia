@@ -1,0 +1,10 @@
+4. Implement hints
+5. Give user some instructions about how to answer (like dragging, etc);    
+6. Keep track of which quizzes the user has completed
+7. Git
+8. Transitions/animations
+    8a. Transition quiz menu items in when loaded or when search/filters change
+9. Better deployment
+    9a. Maybe use a node deployment?
+        9aa. Remove hash router?
+10. OG stuff    

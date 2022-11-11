@@ -1,0 +1,15 @@
+.orderable {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.input-form--orderable {
+    align-items: stretch;
+    row-gap: 0;
+}
+
+.input-form--orderable button {
+    margin-top: 0.5rem;
+}

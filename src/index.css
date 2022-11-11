@@ -1,13 +1,106 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+:root {
+  --white-rgb: 255 255 255;
+  --white: rgb(var(--white-rgb));
+  --dark-rgb: 0 0 0;
+  --dark: rgb(var(--dark-rgb));
+  --gold-rgb: 205 167 59;
+  --gold: rgb(var(--gold-rgb));
+  --green-rgb: 104 161 58;
+  --green: rgb(var(--green-rgb));
+  --purple-light-rgb: 96 64 143;
+  --purple-light: rgb(var(--purple-light-rgb));
+  --purple-dark-rgb: 74 48 141;
+  --purple-dark: rgb(var(--purple-dark-rgb));
+  --purple-bg: radial-gradient(var(--purple-light), var(--purple-dark));
+}
+
+@font-face {
+  font-family: "GeoSansLight";
+  src: url("https://localstorage.tools/game/font/GeosansLight.ttf");
+}
+* {
+  font-family: "GeoSansLight", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  background-color: var(--white);
+}
+
+
+.button, input {
+  color: var(--white);
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border-radius: 1rem;
+  font-weight: bold;
+}
+
+.button {
+  cursor: pointer;
+  background: var(--purple-bg);
+  width: fit-content;
+  text-decoration: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button--icon {
+  background: none;
+  height: 3rem;
+  width: 3rem;
+  padding: 0;
+  border-radius: 100%;
+
+  border: none;
+
+  align-self: center;
+}
+
+input {
+  background-color: var(--white);
+  color: var(--dark);
+
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.button:active {
+  background: var(--green);
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+.dark-fg {
+  color: var(--dark);
+}
+
+main {
+  display: grid;
+  grid-template-areas: "area";
+  flex-grow: 2;
+}
+
+details {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--dark);
+}
+
+summary {
+  cursor: pointer;
+  background-color: var(--gold);
+  padding: 0.5rem;
+}
+
+summary > * {
+  display: inline;
 }
