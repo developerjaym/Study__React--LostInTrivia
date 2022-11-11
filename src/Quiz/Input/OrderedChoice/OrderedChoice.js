@@ -37,7 +37,7 @@ export default function OrderedChoice({ question, onAnswered }) {
     if (from === to) {
       // do nothing
       //   setDragged(null);
-      let dragged = null;
+      dragged = null;
     } else if (from < to) {
       // moving item down on the screen (to a higher index)
       const aboveTheFrom = workingList.slice(0, from);
@@ -57,6 +57,31 @@ export default function OrderedChoice({ question, onAnswered }) {
       setOrderedList(workingList);
     }
   };
+
+  const onUp = option => e => {
+    const indexOfOption = orderedList.findIndex(element => element === option);
+    if(indexOfOption > 0) {
+      const moveMeUp = orderedList[indexOfOption];
+      const moveMeDown = orderedList[indexOfOption - 1];
+      const workingList = [...orderedList];
+      workingList[indexOfOption] = moveMeDown;
+      workingList[indexOfOption - 1] = moveMeUp;
+      setOrderedList(workingList);
+    }
+  }
+
+  const onDown = option => e => {
+    const indexOfOption = orderedList.findIndex(element => element === option);
+    if(indexOfOption < orderedList.length - 1) {
+      const moveMeDown = orderedList[indexOfOption];
+      const moveMeUp = orderedList[indexOfOption + 1];
+      const workingList = [...orderedList];
+      workingList[indexOfOption] = moveMeUp;
+      workingList[indexOfOption + 1] = moveMeDown;
+      setOrderedList(workingList);
+    }
+  }
+
   const options = orderedList.map((option) => (
     <div
       key={option}
@@ -66,13 +91,15 @@ export default function OrderedChoice({ question, onAnswered }) {
       onDragStart={onDragStart(option)}
       className="orderable"
     >
-      {option}
+     <button className="orderable__option orderable__option--up" onClick={onUp(option)}>↑</button> {option} <button className="orderable__option orderable__option--down" onClick={onDown(option)}>↓</button> 
     </div>
   ));
 
   return (
     <div className="input-form input-form--orderable">
+    <span>Earliest</span>
       {options}
+      <span>Most Recent</span>
       <button className="button" onClick={onSubmitWrapper}>
         Submit
       </button>
