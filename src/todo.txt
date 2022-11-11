@@ -8,3 +8,4 @@
     9a. Maybe use a node deployment?
         9aa. Remove hash router?
 10. OG stuff    
+11. OrderedList doesn't work on mobile
