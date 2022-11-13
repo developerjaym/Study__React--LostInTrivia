@@ -6,10 +6,7 @@ const ToastContext = React.createContext();
 function ToastProvider({ children }) {
   // the value prop of the provider will be our context data
   // this value will be available to child components of this provider
-  const [toastMessage, setToastMessage] = useState("");
-//   useEffect(() => {
-
-//   }, []);
+  const [toastMessage, setToastMessage] = useState(null);
   return (
     <ToastContext.Provider value={{ toastMessage, setToastMessage }}>
       {children}

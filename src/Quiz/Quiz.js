@@ -36,11 +36,11 @@ export default function Quiz() {
     const result = response.result;
     let newScore;
     if (result) {
-      setToastMessage(response.message ?? "Yeah! +1");
+      setToastMessage({message: response.message ?? "👍 +1", mood: "happy"});
       newScore = quiz.score + 1;
     } else {
       setToastMessage(
-        response.message ?? `No. It was ${quiz.questions[quiz.currentIndex].displayAnswer}.`
+        {message: response.message ?? `👎 No. It was ${quiz.questions[quiz.currentIndex].displayAnswer}.`, mood: "sad"}
       );
       newScore = quiz.score;
     }
@@ -77,7 +77,7 @@ export default function Quiz() {
             )}
           </div>
         ) : !loading ? (
-          <Results quiz={quiz} />
+          <Results quiz={quiz} quizId={id} />
         ) : (
           <LoadingIcon />
         )}

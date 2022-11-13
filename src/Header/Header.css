@@ -3,16 +3,7 @@
     pointer-events: none;
   }
   
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      /* animation: App-logo-bounce infinite 1s linear; */
-    }
-  }
-  
   .App-header {
-    /* background: linear-gradient(45deg, var(--dark), #00000085); */
-    /* background: radial-gradient(#cda73b, #836613); */
-    /* background: var(--dark); */
     background: var(--white);
     min-height: 3rem;
     padding: 0.5rem;

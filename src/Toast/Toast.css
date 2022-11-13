@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    background: var(--green);
+    background: var(--dark);
     color: var(--white);
     padding: 1rem;
     font-size: large;
@@ -13,4 +13,12 @@
 
     position: fixed;
     bottom: 0;
+}
+
+.toast--happy {
+    background: var(--green);
+}
+
+.toast--sad {
+    background: var(--purple-bg);
 }

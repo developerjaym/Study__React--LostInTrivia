@@ -4,7 +4,7 @@ export default function MultipleChoice({ question, onAnswered }) {
     const onSubmitWrapper = (e) => {
       e.preventDefault();
       const answer = Object.fromEntries(new FormData(e.target))
-        .answer.toUpperCase();
+        .answer?.toUpperCase();
         
       onAnswered({
         userAnswer: answer,
@@ -16,7 +16,7 @@ export default function MultipleChoice({ question, onAnswered }) {
       e.target.reset();
     };
 
-    const options = question.options.map(option => (<label key={option}>{option} <input type="radio" name="answer" value={option}/></label>))
+    const options = question.options.sort().map(option => (<label key={option}>{option} <input type="radio" name="answer" value={option}/></label>))
   
     return (
       <form className="input-form input-form--multiple-choice" onSubmit={onSubmitWrapper}>

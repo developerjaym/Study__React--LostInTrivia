@@ -6,10 +6,10 @@ export default function Toast() {
     const {toastMessage, setToastMessage} = useContext(ToastContext);
     useEffect(() => {
         setTimeout(() => {
-            setToastMessage("");
+            setToastMessage(null);
         }, 3000);
     }, [toastMessage, setToastMessage]);
     return (
-       Boolean(toastMessage) ?  <div className="toast">{toastMessage}</div> : null
+       Boolean(toastMessage) ?  <div className={`toast toast--${toastMessage.mood}`}>{toastMessage.message}</div> : null
     );
 }
