@@ -22,3 +22,7 @@
 .toast--sad {
     background: var(--purple-bg);
 }
+
+.toast--undefined {
+    display: none;
+}
