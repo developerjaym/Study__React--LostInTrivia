@@ -1,8 +1,7 @@
 import "./LoadingIcon.css";
-import logo from "../logo_squares.png";
 
 export default function LoadingIcon() {
     return (
-        <img src={logo} className="loading-logo" alt="logo" />
+        <img src="https://localstorage.tools/trivia/app/logo_squares.png" className="loading-logo" alt="logo with three squares in a row with slight overlap between each" />
     )
 }
