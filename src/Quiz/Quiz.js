@@ -27,6 +27,7 @@ export default function Quiz() {
           currentIndex: 0,
           currentQuestion: q.questions[0],
           score: 0,
+          results: []
         });
         setLoading(false);
       });
@@ -48,7 +49,8 @@ export default function Quiz() {
       ...quiz,
       score: newScore,
       currentIndex: quiz.currentIndex + 1,
-      currentQuestion: quiz.questions[quiz.currentIndex + 1]
+      currentQuestion: quiz.questions[quiz.currentIndex + 1],
+      results: [...quiz.results, response.result]
     });
   };
 

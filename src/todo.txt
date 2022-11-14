@@ -5,4 +5,4 @@
     8a. Transition quiz menu items in when loaded or when search/filters change
 9. Make the toasts always last the right amount of time
 11. Make 'test' route for testing new quizzes
-12. Make 'generate' route for creating new quizzes    
+12. Make 'generate' route for creating new quizzes   
