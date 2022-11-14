@@ -41,6 +41,7 @@ export default function FilterHeader() {
           <input
             type="search"
             defaultValue={searchRequest.term}
+            autoFocus
             onChange={(e) =>
               setSearchRequest({ ...searchRequest, term: e.target.value })
             }
