@@ -8,8 +8,6 @@ import "./Quiz.css";
 import Results from "./Results/Results";
 
 export default function Quiz() {
-  // right prompt type
-  // right input type
   const [quiz, setQuiz] = useState(null);
   const [loading, setLoading] = useState(true);
   const { setToastMessage } = useContext(ToastContext);

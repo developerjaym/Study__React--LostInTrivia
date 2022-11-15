@@ -4,13 +4,12 @@
 class Timer {
     #period;
     #function;
-    #interval;
     static test = 1;
     constructor(period) {
         this.#period = period;
         this.#function = () => {
         }
-        this.#interval = setInterval(() => this.#run(), this.#period)
+        setInterval(() => this.#run(), this.#period)
     }
     set func(newFunction) {
         this.#function = newFunction;
