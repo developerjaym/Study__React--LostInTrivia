@@ -13,7 +13,7 @@ export default function TriviaQuizMenuItem({ quiz }) {
     }
     const status = Boolean(completed) ? (<span title="You have already completed this quiz." className="subtitle status">✓</span>) : null;
   return (
-    <div className="menu-item">
+    <div className="menu-item expand">
         <header className="menu-item__title">
             <span>Quiz</span>
             <h2>{quiz.name}</h2>

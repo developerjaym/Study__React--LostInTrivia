@@ -15,7 +15,7 @@ export default function Results({ quiz, quizId }) {
     clipboardCopier.copy(quizId, `#LostInTrivia: ${quiz.name}\nResults: ${resultsToString(quiz.results)}`, () => setToastMessage({message:"Copied!", mood: "happy"}), () => setToastMessage({message: "Hmm, copying failed. Sorry.", mood:"sad"}));
   }
   return (
-    <div className="results">
+    <div className="results expand">
       <h2>Results for {quiz.name}</h2>
       <span>Score: {quiz.score} points</span>
       <span>{resultsToString(quiz.results)}</span>

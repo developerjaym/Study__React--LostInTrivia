@@ -60,7 +60,7 @@ export default function Quiz() {
       </Header>
       <main>
         {!loading && quiz.currentIndex < quiz.questions.length ? (
-          <div className="quiz">
+          <div className="quiz slide-in">
             <details>
               <summary>
                 <h3>{quiz.name}</h3>

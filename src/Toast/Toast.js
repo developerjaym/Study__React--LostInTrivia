@@ -6,7 +6,7 @@ export default function Toast() {
   const { toastMessage } = useContext(ToastContext);
 
   return Boolean(toastMessage) ? (
-    <div className={`toast toast--${toastMessage.mood}`}>
+    <div className={`toast toast--${toastMessage.mood} expand`}>
       {toastMessage.message}
     </div>
   ) : null;
