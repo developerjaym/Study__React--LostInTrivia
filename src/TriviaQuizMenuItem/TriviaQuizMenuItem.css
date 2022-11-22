@@ -47,7 +47,7 @@
     display: grid;
     grid-template-areas: "difficulty length"
     "description description"
-    "action action";
+    "status action";
     grid-template-rows: 20% 60% 20%;
 
     padding: 1rem;
@@ -77,4 +77,9 @@
 .menu-item__action {
     place-self: end;
     grid-area: action;
+}
+
+.status {
+    place-self: start;
+    grid-area: status;
 }

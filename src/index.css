@@ -73,6 +73,10 @@ input {
 
 .button:active {
   background: var(--green);
+  color: var(--white);
+}
+.button:active svg path {
+  fill: white;
 }
 
 .button:disabled {

@@ -58,9 +58,11 @@ export default function OrderedChoice({ question, onAnswered }) {
     }
   };
 
-  const onUp = option => e => {
-    const indexOfOption = orderedList.findIndex(element => element === option);
-    if(indexOfOption > 0) {
+  const onUp = (option) => (e) => {
+    const indexOfOption = orderedList.findIndex(
+      (element) => element === option
+    );
+    if (indexOfOption > 0) {
       const moveMeUp = orderedList[indexOfOption];
       const moveMeDown = orderedList[indexOfOption - 1];
       const workingList = [...orderedList];
@@ -68,11 +70,13 @@ export default function OrderedChoice({ question, onAnswered }) {
       workingList[indexOfOption - 1] = moveMeUp;
       setOrderedList(workingList);
     }
-  }
+  };
 
-  const onDown = option => e => {
-    const indexOfOption = orderedList.findIndex(element => element === option);
-    if(indexOfOption < orderedList.length - 1) {
+  const onDown = (option) => (e) => {
+    const indexOfOption = orderedList.findIndex(
+      (element) => element === option
+    );
+    if (indexOfOption < orderedList.length - 1) {
       const moveMeDown = orderedList[indexOfOption];
       const moveMeUp = orderedList[indexOfOption + 1];
       const workingList = [...orderedList];
@@ -80,7 +84,7 @@ export default function OrderedChoice({ question, onAnswered }) {
       workingList[indexOfOption + 1] = moveMeDown;
       setOrderedList(workingList);
     }
-  }
+  };
 
   const options = orderedList.map((option) => (
     <div
@@ -91,15 +95,27 @@ export default function OrderedChoice({ question, onAnswered }) {
       onDragStart={onDragStart(option)}
       className="orderable"
     >
-     <button className="orderable__option orderable__option--up" onClick={onUp(option)}>↑</button> {option} <button className="orderable__option orderable__option--down" onClick={onDown(option)}>↓</button> 
+      <button
+        className="orderable__option orderable__option--up"
+        onClick={onUp(option)}
+      >
+        ↑
+      </button>{" "}
+      {option}{" "}
+      <button
+        className="orderable__option orderable__option--down"
+        onClick={onDown(option)}
+      >
+        ↓
+      </button>
     </div>
   ));
 
   return (
     <div className="input-form input-form--orderable">
-    <span>Earliest</span>
+      <span>First</span>
       {options}
-      <span>Most Recent</span>
+      <span>Last</span>
       <button className="button" onClick={onSubmitWrapper}>
         Submit
       </button>

@@ -14,6 +14,7 @@ function SearchProvider({ children }) {
       Language: true,
       Pricing: true,
       Science: true,
+      Geography: true
     },
   });
   return (

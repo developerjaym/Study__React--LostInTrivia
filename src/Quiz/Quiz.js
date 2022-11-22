@@ -19,6 +19,7 @@ export default function Quiz() {
       .then((json) => {
         const q = json.find((each) => each.id === id);
         setQuiz({
+          id: q.id,
           description: q.description,
           name: q.name,
           questions: q.questions,

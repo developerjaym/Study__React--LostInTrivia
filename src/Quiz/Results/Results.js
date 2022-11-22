@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ToastContext } from "../../context/Toasts";
 import ClipboardCopier from "../../some_tools/ClipboardCopier";
+import { saveResult } from "../../some_tools/ResultsRepository";
 import "./Results.css";
 
 export default function Results({ quiz, quizId }) {
+  useEffect(() => {
+    saveResult(quiz)
+  }, [quiz])
   const {setToastMessage} = useContext(ToastContext);
   const resultsToString = results => results.map(result => result ? "🟩" : "⬛").join("");
   const share = e => {
