@@ -4,7 +4,6 @@ import "./TriviaQuizMenuItem.css";
 
 export default function TriviaQuizMenuItem({ quiz }) {
     const completed = getResult(quiz.id);
-    console.log(Boolean(completed));
     let difficultyKey = {
         "1": "Easy",
         "2": "Easy",

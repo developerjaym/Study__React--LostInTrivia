@@ -20,7 +20,7 @@
 }
 
 .toast--sad {
-    background: var(--purple-bg);
+    background: var(--red);
 }
 
 .toast--undefined {
