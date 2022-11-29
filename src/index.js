@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom/client";
 
 import {
   createHashRouter,
+  Navigate,
   RouterProvider
 } from "react-router-dom";
 import App from "./App";
@@ -26,12 +27,13 @@ const router = createHashRouter([
         element: <Quiz/>,
         loader: quizLoader
       },
-    ]
+    ],
+    errorElement:  <Navigate to="/" replace/>
   },
   
   {
     path:"*",
-    element: (<h1>404</h1>)
+    element: <Navigate to="/" replace/>
   }
 ])
 
