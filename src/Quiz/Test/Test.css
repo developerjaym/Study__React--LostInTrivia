@@ -1,0 +1,21 @@
+.test__form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+    row-gap: 1rem;
+}
+
+.test__form textarea {
+    height: 50vh;
+}
+
+.test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.test-link {
+    font-size: medium;
+}

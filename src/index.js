@@ -9,7 +9,8 @@ import {
 import App from "./App";
 import Home from "./Home/Home";
 import "./index.css";
-import Quiz from "./Quiz/Quiz";
+import QuizWrapper from "./Quiz/QuizWrapper";
+import Test from "./Quiz/Test/Test";
 import { quizLoader } from "./some_tools/QuizLoader";
 
 const router = createHashRouter([
@@ -24,8 +25,12 @@ const router = createHashRouter([
       },
       {
         path:"/quiz/:id",
-        element: <Quiz/>,
+        element: <QuizWrapper/>,
         loader: quizLoader
+      },
+      {
+        path:"/test",
+        element: <Test/>
       },
     ],
     errorElement:  <Navigate to="/" replace/>
