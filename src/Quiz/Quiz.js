@@ -1,47 +1,44 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { ToastContext } from "../context/Toasts";
 import Header from "../Header/Header";
-import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import Question from "./Question/Question";
 import "./Quiz.css";
 import Results from "./Results/Results";
 
 export default function Quiz() {
-  const [quiz, setQuiz] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { data } = useLoaderData();
+  const { id } = useParams();
+
+  const [quiz, setQuiz] = useState(() => {
+    const q = data.find((each) => each.id === id);
+    return {
+      id: q.id,
+      description: q.description,
+      name: q.name,
+      questions: q.questions,
+      currentIndex: 0,
+      currentQuestion: q.questions[0],
+      score: 0,
+      results: [],
+    }
+  });
   const { setToastMessage } = useContext(ToastContext);
 
-  const { id } = useParams();
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_DATA_URL}`)
-      .then((res) => res.json())
-      .then((json) => {
-        const q = json.find((each) => each.id === id);
-        setQuiz({
-          id: q.id,
-          description: q.description,
-          name: q.name,
-          questions: q.questions,
-          currentIndex: 0,
-          currentQuestion: q.questions[0],
-          score: 0,
-          results: []
-        });
-        setLoading(false);
-      });
-  }, [id]);
 
   const onAnswered = (response) => {
     const result = response.result;
     let newScore;
     if (result) {
-      setToastMessage({message: response.message ?? "👍 +1", mood: "happy"});
+      setToastMessage({ message: response.message ?? "👍 +1", mood: "happy" });
       newScore = quiz.score + 1;
     } else {
-      setToastMessage(
-        {message: response.message ?? `👎 No. It was ${quiz.questions[quiz.currentIndex].displayAnswer}.`, mood: "sad"}
-      );
+      setToastMessage({
+        message:
+          response.message ??
+          `👎 No. It was ${quiz.questions[quiz.currentIndex].displayAnswer}.`,
+        mood: "sad",
+      });
       newScore = quiz.score;
     }
     setQuiz({
@@ -49,17 +46,19 @@ export default function Quiz() {
       score: newScore,
       currentIndex: quiz.currentIndex + 1,
       currentQuestion: quiz.questions[quiz.currentIndex + 1],
-      results: [...quiz.results, response.result]
+      results: [...quiz.results, response.result],
     });
   };
 
   return (
     <>
       <Header>
-        <Link to="/" className="button button--icon dark-fg">←</Link>
+        <Link to="/" className="button button--icon dark-fg">
+          ←
+        </Link>
       </Header>
       <main>
-        {!loading && quiz.currentIndex < quiz.questions.length ? (
+        {quiz.currentIndex < quiz.questions.length ? (
           <div className="quiz slide-in">
             <details>
               <summary>
@@ -68,19 +67,14 @@ export default function Quiz() {
               <p>{quiz.description}</p>
             </details>
             <div className="score">Score: {quiz?.score}</div>
-            {loading ? (
-              <LoadingIcon />
-            ) : (
+            
               <Question
                 question={quiz.currentQuestion}
                 onAnswered={onAnswered}
               />
-            )}
           </div>
-        ) : !loading ? (
+        ) :  (
           <Results quiz={quiz} quizId={id} />
-        ) : (
-          <LoadingIcon />
         )}
       </main>
     </>

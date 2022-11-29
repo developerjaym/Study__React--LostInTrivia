@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import TriviaQuizMenuItem from "../TriviaQuizMenuItem/TriviaQuizMenuItem";
 import LoadingIcon from "../LoadingIcon/LoadingIcon";
 import { SearchContext } from "../context/Search";
+import { useLoaderData } from "react-router-dom";
 
 const searchAndSort = (quizzes, searchRequest) => {
   quizzes.sort((a, b) => a.name.localeCompare(b.name));
@@ -12,19 +13,17 @@ const searchAndSort = (quizzes, searchRequest) => {
 }
 
 export default function TriviaList() {
+  const { data } = useLoaderData();
+
   const [quizzes, setQuizzes] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   const {searchRequest} = useContext(SearchContext);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_DATA_URL}`)
-      .then((res) => res.json())
-      .then((json) => {
-        const searchedAndSortedQuizzes = searchAndSort(json, searchRequest);
+        const searchedAndSortedQuizzes = searchAndSort(data, searchRequest);
         setQuizzes(searchedAndSortedQuizzes);
         setLoading(false);
-      });
-  }, [searchRequest]);
+  }, [data, searchRequest]);
   const quizElements = searchAndSort(quizzes, searchRequest).map((quiz) => (
     <TriviaQuizMenuItem key={quiz.id} quiz={quiz} />
   ));
