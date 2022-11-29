@@ -14,7 +14,7 @@ export default function Quiz() {
 
   const { id } = useParams();
   useEffect(() => {
-    fetch("https://localstorage.tools/trivia/test.json")
+    fetch(`${process.env.REACT_APP_DATA_URL}`)
       .then((res) => res.json())
       .then((json) => {
         const q = json.find((each) => each.id === id);

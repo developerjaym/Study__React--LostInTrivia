@@ -19,6 +19,7 @@
 @font-face {
   font-family: "GeoSansLight";
   src: url("https://localstorage.tools/game/font/GeosansLight.ttf");
+  font-display: swap;
 }
 * {
   font-family: "GeoSansLight", sans-serif;

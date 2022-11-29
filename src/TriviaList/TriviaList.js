@@ -16,9 +16,8 @@ export default function TriviaList() {
   const [isLoading, setLoading] = useState(true);
 
   const {searchRequest} = useContext(SearchContext);
-  
   useEffect(() => {
-    fetch("https://localstorage.tools/trivia/test.json")
+    fetch(`${process.env.REACT_APP_DATA_URL}`)
       .then((res) => res.json())
       .then((json) => {
         const searchedAndSortedQuizzes = searchAndSort(json, searchRequest);
