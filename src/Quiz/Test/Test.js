@@ -8,7 +8,6 @@ export default function Test() {
   const showQuiz = (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
-    console.log(formData);
     setQuiz(JSON.parse(formData.data));
   };
   return (
