@@ -2,3 +2,4 @@
 5. Give user some instructions about how to answer (like dragging, etc);    
 12. Make 'generate' route for creating new quizzes   
 13. 'Map' input type
+14. 'Number' input type

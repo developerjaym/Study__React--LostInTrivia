@@ -45,7 +45,7 @@ export default function Quiz({ quizElement, quizId }) {
   return (
     <>
       {quiz.currentIndex < quiz.questions.length ? (
-        <div className="quiz slide-in">
+        <div className="quiz">
           <details>
             <summary>
               <h3>{quiz.name}</h3>

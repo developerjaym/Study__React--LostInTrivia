@@ -14,7 +14,7 @@ export default function QuizWrapper() {
           ←
         </Link>
       </Header>
-      <main>
+      <main className="expand">
         <Quiz quizElement={data.find((ele) => ele.id === id)} quizId={id} />
       </main>
     </>
